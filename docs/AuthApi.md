@@ -4,14 +4,14 @@ All URIs are relative to */user_service/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_access_tokens_db_login_v1_auth_login_post**](AuthApi.md#auth_access_tokens_db_login_v1_auth_login_post) | **POST** /v1/auth/login | Auth:Access-Tokens-Db.Login
-[**auth_access_tokens_db_logout_v1_auth_logout_post**](AuthApi.md#auth_access_tokens_db_logout_v1_auth_logout_post) | **POST** /v1/auth/logout | Auth:Access-Tokens-Db.Logout
+[**auth_users_login**](AuthApi.md#auth_users_login) | **POST** /v1/auth/login | Auth:Users.Login
+[**auth_users_logout**](AuthApi.md#auth_users_logout) | **POST** /v1/auth/logout | Auth:Users.Logout
 
 
-# **auth_access_tokens_db_login_v1_auth_login_post**
-> BearerResponse auth_access_tokens_db_login_v1_auth_login_post(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
+# **auth_users_login**
+> BearerResponse auth_users_login(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
 
-Auth:Access-Tokens-Db.Login
+Auth:Users.Login
 
 ### Example
 
@@ -51,12 +51,12 @@ with users_client.ApiClient(configuration) as api_client:
     client_secret = 'client_secret_example' # str |  (optional)
 
     try:
-        # Auth:Access-Tokens-Db.Login
-        api_response = api_instance.auth_access_tokens_db_login_v1_auth_login_post(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
-        print("The response of AuthApi->auth_access_tokens_db_login_v1_auth_login_post:\n")
+        # Auth:Users.Login
+        api_response = api_instance.auth_users_login(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
+        print("The response of AuthApi->auth_users_login:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AuthApi->auth_access_tokens_db_login_v1_auth_login_post: %s\n" % e)
+        print("Exception when calling AuthApi->auth_users_login: %s\n" % e)
 ```
 
 
@@ -96,10 +96,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auth_access_tokens_db_logout_v1_auth_logout_post**
-> object auth_access_tokens_db_logout_v1_auth_logout_post()
+# **auth_users_logout**
+> object auth_users_logout()
 
-Auth:Access-Tokens-Db.Logout
+Auth:Users.Logout
 
 ### Example
 
@@ -135,12 +135,12 @@ with users_client.ApiClient(configuration) as api_client:
     api_instance = users_client.AuthApi(api_client)
 
     try:
-        # Auth:Access-Tokens-Db.Logout
-        api_response = api_instance.auth_access_tokens_db_logout_v1_auth_logout_post()
-        print("The response of AuthApi->auth_access_tokens_db_logout_v1_auth_logout_post:\n")
+        # Auth:Users.Logout
+        api_response = api_instance.auth_users_logout()
+        print("The response of AuthApi->auth_users_logout:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AuthApi->auth_access_tokens_db_logout_v1_auth_logout_post: %s\n" % e)
+        print("Exception when calling AuthApi->auth_users_logout: %s\n" % e)
 ```
 
 

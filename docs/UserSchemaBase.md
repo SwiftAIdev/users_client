@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **third_party_id** | **str** |  | 
 **is_active** | **bool** |  | [optional] [default to True]
 **is_integrator** | **bool** |  | [optional] [default to False]
+**is_superuser** | **bool** |  | [optional] [default to False]
+**is_verified** | **bool** |  | [optional] [default to False]
 
 ## Example
 

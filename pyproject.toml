@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "users_client"
 version = "1.0.0"
-description = "SwiftAI - user service"
+description = "SwiftAI - User Service"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
-keywords = ["OpenAPI", "OpenAPI-Generator", "SwiftAI - user service"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "SwiftAI - User Service"]
 include = ["users_client/py.typed"]
 
 [tool.poetry.dependencies]

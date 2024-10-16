@@ -40,7 +40,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_login_v1_auth_login_post(
+    def auth_users_login(
         self,
         username: StrictStr,
         password: StrictStr,
@@ -61,7 +61,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BearerResponse:
-        """Auth:Access-Tokens-Db.Login
+        """Auth:Users.Login
 
 
         :param username: (required)
@@ -98,7 +98,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_login_v1_auth_login_post_serialize(
+        _param = self._auth_users_login_serialize(
             username=username,
             password=password,
             grant_type=grant_type,
@@ -128,7 +128,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_login_v1_auth_login_post_with_http_info(
+    def auth_users_login_with_http_info(
         self,
         username: StrictStr,
         password: StrictStr,
@@ -149,7 +149,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BearerResponse]:
-        """Auth:Access-Tokens-Db.Login
+        """Auth:Users.Login
 
 
         :param username: (required)
@@ -186,7 +186,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_login_v1_auth_login_post_serialize(
+        _param = self._auth_users_login_serialize(
             username=username,
             password=password,
             grant_type=grant_type,
@@ -216,7 +216,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_login_v1_auth_login_post_without_preload_content(
+    def auth_users_login_without_preload_content(
         self,
         username: StrictStr,
         password: StrictStr,
@@ -237,7 +237,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Auth:Access-Tokens-Db.Login
+        """Auth:Users.Login
 
 
         :param username: (required)
@@ -274,7 +274,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_login_v1_auth_login_post_serialize(
+        _param = self._auth_users_login_serialize(
             username=username,
             password=password,
             grant_type=grant_type,
@@ -299,7 +299,7 @@ class AuthApi:
         return response_data.response
 
 
-    def _auth_access_tokens_db_login_v1_auth_login_post_serialize(
+    def _auth_users_login_serialize(
         self,
         username,
         password,
@@ -392,7 +392,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_logout_v1_auth_logout_post(
+    def auth_users_logout(
         self,
         _request_timeout: Union[
             None,
@@ -407,7 +407,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> object:
-        """Auth:Access-Tokens-Db.Logout
+        """Auth:Users.Logout
 
 
         :param _request_timeout: timeout setting for this request. If one
@@ -432,7 +432,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_logout_v1_auth_logout_post_serialize(
+        _param = self._auth_users_logout_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -455,7 +455,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_logout_v1_auth_logout_post_with_http_info(
+    def auth_users_logout_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -470,7 +470,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[object]:
-        """Auth:Access-Tokens-Db.Logout
+        """Auth:Users.Logout
 
 
         :param _request_timeout: timeout setting for this request. If one
@@ -495,7 +495,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_logout_v1_auth_logout_post_serialize(
+        _param = self._auth_users_logout_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -518,7 +518,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_access_tokens_db_logout_v1_auth_logout_post_without_preload_content(
+    def auth_users_logout_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -533,7 +533,7 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Auth:Access-Tokens-Db.Logout
+        """Auth:Users.Logout
 
 
         :param _request_timeout: timeout setting for this request. If one
@@ -558,7 +558,7 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_access_tokens_db_logout_v1_auth_logout_post_serialize(
+        _param = self._auth_users_logout_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -576,7 +576,7 @@ class AuthApi:
         return response_data.response
 
 
-    def _auth_access_tokens_db_logout_v1_auth_logout_post_serialize(
+    def _auth_users_logout_serialize(
         self,
         _request_auth,
         _content_type,
