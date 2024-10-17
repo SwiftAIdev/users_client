@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**delete_permission_permissions_permission_id_delete**](PermissionApi.md#delete_permission_permissions_permission_id_delete) | **DELETE** /permissions/{permission_id} | Delete Permission
 [**get_permission_by_id_permissions_permission_id_get**](PermissionApi.md#get_permission_by_id_permissions_permission_id_get) | **GET** /permissions/{permission_id} | Get Permission By Id
 [**get_permissions_permissions_get**](PermissionApi.md#get_permissions_permissions_get) | **GET** /permissions/ | Get Permissions
-[**v1_create_permission**](PermissionApi.md#v1_create_permission) | **POST** /v1/permissions/ | Permissions:Create Permission
+[**v1_create_permission**](PermissionApi.md#v1_create_permission) | **POST** /v1/permissions | Permissions:Create Permission
 [**v1_delete_permission**](PermissionApi.md#v1_delete_permission) | **DELETE** /v1/permissions/{permission_id} | Permissions:Delete Permission
 [**v1_get_permission_by_id**](PermissionApi.md#v1_get_permission_by_id) | **GET** /v1/permissions/{permission_id} | Permissions:Get Permission By Id
-[**v1_get_permissions**](PermissionApi.md#v1_get_permissions) | **GET** /v1/permissions/ | Permissions:Get Permissions
+[**v1_get_permissions**](PermissionApi.md#v1_get_permissions) | **GET** /v1/permissions | Permissions:Get Permissions
 
 
 # **create_permission_permissions_post**
@@ -91,7 +91,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_permission_permissions_permission_id_delete**
-> PermissionSchema delete_permission_permissions_permission_id_delete(permission_id)
+> bool delete_permission_permissions_permission_id_delete(permission_id)
 
 Delete Permission
 
@@ -102,7 +102,6 @@ Delete a permission by ID.  This endpoint deletes a permission by its unique ID.
 
 ```python
 import users_client
-from users_client.models.permission_schema import PermissionSchema
 from users_client.rest import ApiException
 from pprint import pprint
 
@@ -139,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionSchema**](PermissionSchema.md)
+**bool**
 
 ### Authorization
 
@@ -417,17 +416,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_delete_permission**
-> PermissionSchema v1_delete_permission(permission_id)
+> bool v1_delete_permission(permission_id)
 
 Permissions:Delete Permission
 
 ### Example
 
+* OAuth Authentication (OAuth2PasswordBearer):
 * Bearer Authentication (HTTPBearer):
 
 ```python
 import users_client
-from users_client.models.permission_schema import PermissionSchema
 from users_client.rest import ApiException
 from pprint import pprint
 
@@ -441,6 +440,8 @@ configuration = users_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure Bearer authorization: HTTPBearer
 configuration = users_client.Configuration(
@@ -473,11 +474,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionSchema**](PermissionSchema.md)
+**bool**
 
 ### Authorization
 
-[HTTPBearer](../README.md#HTTPBearer)
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 

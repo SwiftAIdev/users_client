@@ -115,10 +115,10 @@ Class | Method | HTTP request | Description
 *PermissionApi* | [**delete_permission_permissions_permission_id_delete**](docs/PermissionApi.md#delete_permission_permissions_permission_id_delete) | **DELETE** /permissions/{permission_id} | Delete Permission
 *PermissionApi* | [**get_permission_by_id_permissions_permission_id_get**](docs/PermissionApi.md#get_permission_by_id_permissions_permission_id_get) | **GET** /permissions/{permission_id} | Get Permission By Id
 *PermissionApi* | [**get_permissions_permissions_get**](docs/PermissionApi.md#get_permissions_permissions_get) | **GET** /permissions/ | Get Permissions
-*PermissionApi* | [**v1_create_permission**](docs/PermissionApi.md#v1_create_permission) | **POST** /v1/permissions/ | Permissions:Create Permission
+*PermissionApi* | [**v1_create_permission**](docs/PermissionApi.md#v1_create_permission) | **POST** /v1/permissions | Permissions:Create Permission
 *PermissionApi* | [**v1_delete_permission**](docs/PermissionApi.md#v1_delete_permission) | **DELETE** /v1/permissions/{permission_id} | Permissions:Delete Permission
 *PermissionApi* | [**v1_get_permission_by_id**](docs/PermissionApi.md#v1_get_permission_by_id) | **GET** /v1/permissions/{permission_id} | Permissions:Get Permission By Id
-*PermissionApi* | [**v1_get_permissions**](docs/PermissionApi.md#v1_get_permissions) | **GET** /v1/permissions/ | Permissions:Get Permissions
+*PermissionApi* | [**v1_get_permissions**](docs/PermissionApi.md#v1_get_permissions) | **GET** /v1/permissions | Permissions:Get Permissions
 *RolesApi* | [**add_permission_to_role_roles_role_id_permissions_permission_id_post**](docs/RolesApi.md#add_permission_to_role_roles_role_id_permissions_permission_id_post) | **POST** /roles/{role_id}/permissions/{permission_id} | Add Permission To Role
 *RolesApi* | [**add_permissions_to_role_roles_role_id_permissions_post**](docs/RolesApi.md#add_permissions_to_role_roles_role_id_permissions_post) | **POST** /roles/{role_id}/permissions | Add Permissions To Role
 *RolesApi* | [**create_role_roles_post**](docs/RolesApi.md#create_role_roles_post) | **POST** /roles/ | Create Role
@@ -128,9 +128,9 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**remove_permission_to_role_roles_role_id_permissions_permission_id_delete**](docs/RolesApi.md#remove_permission_to_role_roles_role_id_permissions_permission_id_delete) | **DELETE** /roles/{role_id}/permissions/{permission_id} | Remove Permission To Role
 *RolesApi* | [**v1_add_permission_by_role**](docs/RolesApi.md#v1_add_permission_by_role) | **POST** /v1/roles/{role_id}/permissions/{permission_id} | Roles:Add Permission By Role
 *RolesApi* | [**v1_add_permissions_by_role**](docs/RolesApi.md#v1_add_permissions_by_role) | **POST** /v1/roles/{role_id}/permissions | Roles:Add Permissions By Role
-*RolesApi* | [**v1_create_role**](docs/RolesApi.md#v1_create_role) | **POST** /v1/roles/ | Roles:Create Role
+*RolesApi* | [**v1_create_role**](docs/RolesApi.md#v1_create_role) | **POST** /v1/roles | Roles:Create Role
 *RolesApi* | [**v1_get_role_by_id**](docs/RolesApi.md#v1_get_role_by_id) | **GET** /v1/roles/{role_id} | Roles:Get Role By Id
-*RolesApi* | [**v1_get_roles**](docs/RolesApi.md#v1_get_roles) | **GET** /v1/roles/ | Roles:Get Roles
+*RolesApi* | [**v1_get_roles**](docs/RolesApi.md#v1_get_roles) | **GET** /v1/roles | Roles:Get Roles
 *RolesApi* | [**v1_remove_permission_by_role**](docs/RolesApi.md#v1_remove_permission_by_role) | **DELETE** /v1/roles/{role_id}/permissions/{permission_id} | Roles:Remove Permission By Role
 *RolesApi* | [**v1_remove_role**](docs/RolesApi.md#v1_remove_role) | **DELETE** /v1/roles/{role_id} | Roles:Remove Role
 *UsersApi* | [**change_user_email_users_user_id_change_email_post**](docs/UsersApi.md#change_user_email_users_user_id_change_email_post) | **POST** /users/{user_id}/change_email | Change User Email

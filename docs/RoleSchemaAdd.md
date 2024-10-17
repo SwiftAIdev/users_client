@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**permissions** | **List[int]** |  | 
 
 ## Example
 

@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from users_client.models.pagination_request_permission_schema import PaginationRequestPermissionSchema
@@ -351,7 +351,7 @@ class PermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionSchema:
+    ) -> bool:
         """Delete Permission
 
         Delete a permission by ID.  This endpoint deletes a permission by its unique ID.
@@ -389,7 +389,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -425,7 +425,7 @@ class PermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionSchema]:
+    ) -> ApiResponse[bool]:
         """Delete Permission
 
         Delete a permission by ID.  This endpoint deletes a permission by its unique ID.
@@ -463,7 +463,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -537,7 +537,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -1576,7 +1576,7 @@ class PermissionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v1/permissions/',
+            resource_path='/v1/permissions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1608,7 +1608,7 @@ class PermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionSchema:
+    ) -> bool:
         """Permissions:Delete Permission
 
 
@@ -1645,7 +1645,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -1681,7 +1681,7 @@ class PermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionSchema]:
+    ) -> ApiResponse[bool]:
         """Permissions:Delete Permission
 
 
@@ -1718,7 +1718,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -1791,7 +1791,7 @@ class PermissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PermissionSchema",
+            '202': "bool",
             '400': "ServiceErrorPydantic",
             '401': "ServiceErrorPydantic",
             '403': "ServiceErrorPydantic",
@@ -1850,6 +1850,7 @@ class PermissionApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'OAuth2PasswordBearer', 
             'HTTPBearer'
         ]
 
@@ -2536,7 +2537,7 @@ class PermissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/v1/permissions/',
+            resource_path='/v1/permissions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

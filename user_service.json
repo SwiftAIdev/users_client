@@ -809,7 +809,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PermissionSchema"
+                  "type": "boolean",
+                  "title": "Response Delete Permission Permissions  Permission Id  Delete"
                 }
               }
             }
@@ -3709,7 +3710,7 @@
         }
       }
     },
-    "/v1/roles/": {
+    "/v1/roles": {
       "post": {
         "tags": [
           "Roles"
@@ -5024,7 +5025,7 @@
         }
       }
     },
-    "/v1/permissions/": {
+    "/v1/permissions": {
       "post": {
         "tags": [
           "Permission"
@@ -5427,6 +5428,9 @@
         "security": [
           {
             "HTTPBearer": []
+          },
+          {
+            "OAuth2PasswordBearer": []
           }
         ],
         "parameters": [
@@ -5446,7 +5450,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PermissionSchema"
+                  "type": "boolean",
+                  "title": "Response V1 Delete Permission"
                 }
               }
             }
@@ -5784,14 +5789,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799403"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799446"
           },
           "is_delete": {
             "type": "boolean",
@@ -5849,14 +5854,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799403"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799446"
           },
           "is_delete": {
             "type": "boolean",
@@ -5893,19 +5898,11 @@
           "name": {
             "type": "string",
             "title": "Название"
-          },
-          "permissions": {
-            "items": {
-              "type": "integer"
-            },
-            "type": "array",
-            "title": "Список ID разрешений"
           }
         },
         "type": "object",
         "required": [
-          "name",
-          "permissions"
+          "name"
         ],
         "title": "RoleSchemaAdd"
       },
@@ -6004,14 +6001,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799403"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-16T15:07:46.039795"
+            "default": "2024-10-17T13:12:52.799446"
           },
           "is_delete": {
             "type": "boolean",

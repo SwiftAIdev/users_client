@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,7 @@ class RoleSchemaAdd(BaseModel):
     RoleSchemaAdd
     """ # noqa: E501
     name: StrictStr
-    permissions: List[StrictInt]
-    __properties: ClassVar[List[str]] = ["name", "permissions"]
+    __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,8 +80,7 @@ class RoleSchemaAdd(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "permissions": obj.get("permissions")
+            "name": obj.get("name")
         })
         return _obj
 
