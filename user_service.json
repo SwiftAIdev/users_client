@@ -1041,6 +1041,22 @@
             }
           },
           {
+            "name": "name__in",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Name  In"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
             "required": false,
@@ -3891,6 +3907,22 @@
             }
           },
           {
+            "name": "name__in",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Name  In"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
             "required": false,
@@ -5789,14 +5821,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-17T13:12:52.799403"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-17T13:12:52.799446"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "is_delete": {
             "type": "boolean",
@@ -5854,14 +5886,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-17T13:12:52.799403"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-17T13:12:52.799446"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "is_delete": {
             "type": "boolean",
@@ -6001,14 +6033,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-17T13:12:52.799403"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-17T13:12:52.799446"
+            "default": "2024-10-18T18:40:03.374594"
           },
           "is_delete": {
             "type": "boolean",

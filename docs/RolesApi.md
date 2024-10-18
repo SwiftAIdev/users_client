@@ -402,7 +402,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_roles_roles_get**
-> PaginationRequestRoleSchema get_roles_roles_get(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, id=id, id__in=id__in, id__neq=id__neq)
+> PaginationRequestRoleSchema get_roles_roles_get(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, name__in=name__in, id=id, id__in=id__in, id__neq=id__neq)
 
 Get Roles
 
@@ -433,13 +433,14 @@ with users_client.ApiClient(configuration) as api_client:
     is_delete = True # bool |  (optional)
     is_delete__in = 'is_delete__in_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
+    name__in = 'name__in_example' # str |  (optional)
     id = 56 # int |  (optional)
     id__in = 'id__in_example' # str |  (optional)
     id__neq = 'id__neq_example' # str |  (optional)
 
     try:
         # Get Roles
-        api_response = api_instance.get_roles_roles_get(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, id=id, id__in=id__in, id__neq=id__neq)
+        api_response = api_instance.get_roles_roles_get(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, name__in=name__in, id=id, id__in=id__in, id__neq=id__neq)
         print("The response of RolesApi->get_roles_roles_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -458,6 +459,7 @@ Name | Type | Description  | Notes
  **is_delete** | **bool**|  | [optional] 
  **is_delete__in** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
+ **name__in** | **str**|  | [optional] 
  **id** | **int**|  | [optional] 
  **id__in** | **str**|  | [optional] 
  **id__neq** | **str**|  | [optional] 
@@ -918,7 +920,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_get_roles**
-> PaginationRequestRoleSchema v1_get_roles(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, id=id, id__in=id__in, id__neq=id__neq)
+> PaginationRequestRoleSchema v1_get_roles(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, name__in=name__in, id=id, id__in=id__in, id__neq=id__neq)
 
 Roles:Get Roles
 
@@ -960,13 +962,14 @@ with users_client.ApiClient(configuration) as api_client:
     is_delete = True # bool |  (optional)
     is_delete__in = 'is_delete__in_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
+    name__in = 'name__in_example' # str |  (optional)
     id = 56 # int |  (optional)
     id__in = 'id__in_example' # str |  (optional)
     id__neq = 'id__neq_example' # str |  (optional)
 
     try:
         # Roles:Get Roles
-        api_response = api_instance.v1_get_roles(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, id=id, id__in=id__in, id__neq=id__neq)
+        api_response = api_instance.v1_get_roles(page=page, size=size, is_delete=is_delete, is_delete__in=is_delete__in, name=name, name__in=name__in, id=id, id__in=id__in, id__neq=id__neq)
         print("The response of RolesApi->v1_get_roles:\n")
         pprint(api_response)
     except Exception as e:
@@ -985,6 +988,7 @@ Name | Type | Description  | Notes
  **is_delete** | **bool**|  | [optional] 
  **is_delete__in** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
+ **name__in** | **str**|  | [optional] 
  **id** | **int**|  | [optional] 
  **id__in** | **str**|  | [optional] 
  **id__neq** | **str**|  | [optional] 

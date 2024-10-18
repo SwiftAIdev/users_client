@@ -1511,6 +1511,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -1541,6 +1542,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -1575,6 +1578,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -1613,6 +1617,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -1643,6 +1648,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -1677,6 +1684,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -1715,6 +1723,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -1745,6 +1754,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -1779,6 +1790,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -1812,6 +1824,7 @@ class RolesApi:
         is_delete,
         is_delete__in,
         name,
+        name__in,
         id,
         id__in,
         id__neq,
@@ -1856,6 +1869,10 @@ class RolesApi:
         if name is not None:
             
             _query_params.append(('name', name))
+            
+        if name__in is not None:
+            
+            _query_params.append(('name__in', name__in))
             
         if id is not None:
             
@@ -3385,6 +3402,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -3414,6 +3432,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -3448,6 +3468,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -3486,6 +3507,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -3515,6 +3537,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -3549,6 +3573,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -3587,6 +3612,7 @@ class RolesApi:
         is_delete: Optional[StrictBool] = None,
         is_delete__in: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
+        name__in: Optional[StrictStr] = None,
         id: Optional[StrictInt] = None,
         id__in: Optional[StrictStr] = None,
         id__neq: Optional[StrictStr] = None,
@@ -3616,6 +3642,8 @@ class RolesApi:
         :type is_delete__in: str
         :param name:
         :type name: str
+        :param name__in:
+        :type name__in: str
         :param id:
         :type id: int
         :param id__in:
@@ -3650,6 +3678,7 @@ class RolesApi:
             is_delete=is_delete,
             is_delete__in=is_delete__in,
             name=name,
+            name__in=name__in,
             id=id,
             id__in=id__in,
             id__neq=id__neq,
@@ -3683,6 +3712,7 @@ class RolesApi:
         is_delete,
         is_delete__in,
         name,
+        name__in,
         id,
         id__in,
         id__neq,
@@ -3727,6 +3757,10 @@ class RolesApi:
         if name is not None:
             
             _query_params.append(('name', name))
+            
+        if name__in is not None:
+            
+            _query_params.append(('name__in', name__in))
             
         if id is not None:
             
