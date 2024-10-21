@@ -12,6 +12,16 @@ Method | HTTP request | Description
 [**login_user_users_login_post**](UsersApi.md#login_user_users_login_post) | **POST** /users/login | Login User
 [**register_user_users_user_id_register_post**](UsersApi.md#register_user_users_user_id_register_post) | **POST** /users/{user_id}/register | Register User
 [**update_user_users_user_id_put**](UsersApi.md#update_user_users_user_id_put) | **PUT** /users/{user_id} | Update User
+[**v1_change_email**](UsersApi.md#v1_change_email) | **POST** /v1/users/{user_id}/change_email | Users:Change Email
+[**v1_change_password**](UsersApi.md#v1_change_password) | **POST** /v1/users/{user_id}/change_password | Users:Change Password
+[**v1_check_register**](UsersApi.md#v1_check_register) | **GET** /v1/users/{user_id}/check_register | Users:Check Register
+[**v1_create_user**](UsersApi.md#v1_create_user) | **POST** /v1/users | Users:Create User
+[**v1_get_me**](UsersApi.md#v1_get_me) | **GET** /v1/users/me | Users:Get Me
+[**v1_get_role_by_user_id**](UsersApi.md#v1_get_role_by_user_id) | **GET** /v1/users/{user_id}/role | Users:Get Role By User Id
+[**v1_get_user_by_id**](UsersApi.md#v1_get_user_by_id) | **GET** /v1/users/{user_id} | Users:Get User By Id
+[**v1_get_users**](UsersApi.md#v1_get_users) | **GET** /v1/users | Users:Get Users
+[**v1_register**](UsersApi.md#v1_register) | **POST** /v1/users/{user_id}/register | Users:Register
+[**v1_update_user**](UsersApi.md#v1_update_user) | **PUT** /v1/users/{user_id} | Users:Update User
 
 
 # **change_user_email_users_user_id_change_email_post**
@@ -85,7 +95,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -163,7 +173,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -239,7 +249,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -314,7 +324,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -411,7 +421,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -487,7 +497,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -565,7 +575,7 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -643,7 +653,889 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_change_email**
+> UserSchemaBase v1_change_email(user_id, user_schema_change_email)
+
+Users:Change Email
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.models.user_schema_change_email import UserSchemaChangeEmail
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+    user_schema_change_email = users_client.UserSchemaChangeEmail() # UserSchemaChangeEmail | 
+
+    try:
+        # Users:Change Email
+        api_response = api_instance.v1_change_email(user_id, user_schema_change_email)
+        print("The response of UsersApi->v1_change_email:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_change_email: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+ **user_schema_change_email** | [**UserSchemaChangeEmail**](UserSchemaChangeEmail.md)|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_change_password**
+> UserSchemaBase v1_change_password(user_id, user_schema_change_password)
+
+Users:Change Password
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.models.user_schema_change_password import UserSchemaChangePassword
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+    user_schema_change_password = users_client.UserSchemaChangePassword() # UserSchemaChangePassword | 
+
+    try:
+        # Users:Change Password
+        api_response = api_instance.v1_change_password(user_id, user_schema_change_password)
+        print("The response of UsersApi->v1_change_password:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_change_password: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+ **user_schema_change_password** | [**UserSchemaChangePassword**](UserSchemaChangePassword.md)|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_check_register**
+> ResultRequest v1_check_register(user_id)
+
+Users:Check Register
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.result_request import ResultRequest
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+
+    try:
+        # Users:Check Register
+        api_response = api_instance.v1_check_register(user_id)
+        print("The response of UsersApi->v1_check_register:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_check_register: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+
+### Return type
+
+[**ResultRequest**](ResultRequest.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_create_user**
+> UserSchemaBase v1_create_user(user_schema_add)
+
+Users:Create User
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_add import UserSchemaAdd
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_schema_add = users_client.UserSchemaAdd() # UserSchemaAdd | 
+
+    try:
+        # Users:Create User
+        api_response = api_instance.v1_create_user(user_schema_add)
+        print("The response of UsersApi->v1_create_user:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_create_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_schema_add** | [**UserSchemaAdd**](UserSchemaAdd.md)|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_me**
+> UserSchemaBase v1_get_me()
+
+Users:Get Me
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+
+    try:
+        # Users:Get Me
+        api_response = api_instance.v1_get_me()
+        print("The response of UsersApi->v1_get_me:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_get_me: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_role_by_user_id**
+> RoleSchema v1_get_role_by_user_id(user_id)
+
+Users:Get Role By User Id
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.role_schema import RoleSchema
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+
+    try:
+        # Users:Get Role By User Id
+        api_response = api_instance.v1_get_role_by_user_id(user_id)
+        print("The response of UsersApi->v1_get_role_by_user_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_get_role_by_user_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+
+### Return type
+
+[**RoleSchema**](RoleSchema.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_user_by_id**
+> UserSchemaBase v1_get_user_by_id(user_id)
+
+Users:Get User By Id
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+
+    try:
+        # Users:Get User By Id
+        api_response = api_instance.v1_get_user_by_id(user_id)
+        print("The response of UsersApi->v1_get_user_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_get_user_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_users**
+> PaginationRequestUserSchemaBase v1_get_users(page=page, size=size, surname=surname, name=name, email=email, email__not=email__not, third_party_id=third_party_id, invite_code=invite_code, id=id, id__in=id__in, id__neq=id__neq, is_active=is_active)
+
+Users:Get Users
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.pagination_request_user_schema_base import PaginationRequestUserSchemaBase
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 25 # int |  (optional) (default to 25)
+    surname = 'surname_example' # str |  (optional)
+    name = 'name_example' # str |  (optional)
+    email = 'email_example' # str |  (optional)
+    email__not = 'email__not_example' # str |  (optional)
+    third_party_id = 'third_party_id_example' # str |  (optional)
+    invite_code = 'invite_code_example' # str |  (optional)
+    id = 56 # int |  (optional)
+    id__in = 'id__in_example' # str |  (optional)
+    id__neq = 56 # int |  (optional)
+    is_active = True # bool |  (optional)
+
+    try:
+        # Users:Get Users
+        api_response = api_instance.v1_get_users(page=page, size=size, surname=surname, name=name, email=email, email__not=email__not, third_party_id=third_party_id, invite_code=invite_code, id=id, id__in=id__in, id__neq=id__neq, is_active=is_active)
+        print("The response of UsersApi->v1_get_users:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_get_users: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 25]
+ **surname** | **str**|  | [optional] 
+ **name** | **str**|  | [optional] 
+ **email** | **str**|  | [optional] 
+ **email__not** | **str**|  | [optional] 
+ **third_party_id** | **str**|  | [optional] 
+ **invite_code** | **str**|  | [optional] 
+ **id** | **int**|  | [optional] 
+ **id__in** | **str**|  | [optional] 
+ **id__neq** | **int**|  | [optional] 
+ **is_active** | **bool**|  | [optional] 
+
+### Return type
+
+[**PaginationRequestUserSchemaBase**](PaginationRequestUserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_register**
+> UserSchemaBase v1_register(user_id, user_schema_register)
+
+Users:Register
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.models.user_schema_register import UserSchemaRegister
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+    user_schema_register = users_client.UserSchemaRegister() # UserSchemaRegister | 
+
+    try:
+        # Users:Register
+        api_response = api_instance.v1_register(user_id, user_schema_register)
+        print("The response of UsersApi->v1_register:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_register: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+ **user_schema_register** | [**UserSchemaRegister**](UserSchemaRegister.md)|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_update_user**
+> UserSchemaBase v1_update_user(user_id, user_schema_update)
+
+Users:Update User
+
+### Example
+
+* OAuth Authentication (OAuth2PasswordBearer):
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.user_schema_base import UserSchemaBase
+from users_client.models.user_schema_update import UserSchemaUpdate
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+    user_schema_update = users_client.UserSchemaUpdate() # UserSchemaUpdate | 
+
+    try:
+        # Users:Update User
+        api_response = api_instance.v1_update_user(user_id, user_schema_update)
+        print("The response of UsersApi->v1_update_user:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_update_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+ **user_schema_update** | [**UserSchemaUpdate**](UserSchemaUpdate.md)|  | 
+
+### Return type
+
+[**UserSchemaBase**](UserSchemaBase.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer), [HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |

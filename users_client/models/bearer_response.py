@@ -17,22 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PermissionSchema(BaseModel):
+class BearerResponse(BaseModel):
     """
-    PermissionSchema
+    BearerResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="ID пользователя в системе")
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = Field(default=None, description="Дата последнего обновления")
-    is_delete: Optional[StrictBool] = False
-    name: StrictStr = Field(description="Название разрешения")
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "is_delete", "name"]
+    access_token: StrictStr
+    token_type: StrictStr
+    __properties: ClassVar[List[str]] = ["access_token", "token_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +48,7 @@ class PermissionSchema(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PermissionSchema from a JSON string"""
+        """Create an instance of BearerResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,7 +73,7 @@ class PermissionSchema(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PermissionSchema from a dict"""
+        """Create an instance of BearerResponse from a dict"""
         if obj is None:
             return None
 
@@ -85,11 +81,8 @@ class PermissionSchema(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at"),
-            "is_delete": obj.get("is_delete") if obj.get("is_delete") is not None else False,
-            "name": obj.get("name")
+            "access_token": obj.get("access_token"),
+            "token_type": obj.get("token_type")
         })
         return _obj
 

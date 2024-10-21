@@ -17,22 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from users_client.models.detail import Detail
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PermissionSchema(BaseModel):
+class ErrorModel(BaseModel):
     """
-    PermissionSchema
+    ErrorModel
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="ID пользователя в системе")
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = Field(default=None, description="Дата последнего обновления")
-    is_delete: Optional[StrictBool] = False
-    name: StrictStr = Field(description="Название разрешения")
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "is_delete", "name"]
+    detail: Detail
+    __properties: ClassVar[List[str]] = ["detail"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +48,7 @@ class PermissionSchema(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PermissionSchema from a JSON string"""
+        """Create an instance of ErrorModel from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,11 +69,14 @@ class PermissionSchema(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of detail
+        if self.detail:
+            _dict['detail'] = self.detail.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PermissionSchema from a dict"""
+        """Create an instance of ErrorModel from a dict"""
         if obj is None:
             return None
 
@@ -85,11 +84,7 @@ class PermissionSchema(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at"),
-            "is_delete": obj.get("is_delete") if obj.get("is_delete") is not None else False,
-            "name": obj.get("name")
+            "detail": Detail.from_dict(obj["detail"]) if obj.get("detail") is not None else None
         })
         return _obj
 

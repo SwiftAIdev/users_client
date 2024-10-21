@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from users_client.api.auth_api import AuthApi
 from users_client.api.invited_user_api import InvitedUserApi
 from users_client.api.permission_api import PermissionApi
 from users_client.api.roles_api import RolesApi
