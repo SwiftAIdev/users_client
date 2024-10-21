@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**update_user_users_user_id_put**](docs/UsersApi.md#update_user_users_user_id_put) | **PUT** /users/{user_id} | Update User
 *UsersApi* | [**v1_change_email**](docs/UsersApi.md#v1_change_email) | **POST** /v1/users/{user_id}/change_email | Users:Change Email
 *UsersApi* | [**v1_change_password**](docs/UsersApi.md#v1_change_password) | **POST** /v1/users/{user_id}/change_password | Users:Change Password
+*UsersApi* | [**v1_check_register**](docs/UsersApi.md#v1_check_register) | **GET** /v1/users/{user_id}/check_register | Users:Check Register
 *UsersApi* | [**v1_create_user**](docs/UsersApi.md#v1_create_user) | **POST** /v1/users | Users:Create User
 *UsersApi* | [**v1_get_me**](docs/UsersApi.md#v1_get_me) | **GET** /v1/users/me | Users:Get Me
 *UsersApi* | [**v1_get_role_by_user_id**](docs/UsersApi.md#v1_get_role_by_user_id) | **GET** /v1/users/{user_id}/role | Users:Get Role By User Id

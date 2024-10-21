@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**update_user_users_user_id_put**](UsersApi.md#update_user_users_user_id_put) | **PUT** /users/{user_id} | Update User
 [**v1_change_email**](UsersApi.md#v1_change_email) | **POST** /v1/users/{user_id}/change_email | Users:Change Email
 [**v1_change_password**](UsersApi.md#v1_change_password) | **POST** /v1/users/{user_id}/change_password | Users:Change Password
+[**v1_check_register**](UsersApi.md#v1_check_register) | **GET** /v1/users/{user_id}/check_register | Users:Check Register
 [**v1_create_user**](UsersApi.md#v1_create_user) | **POST** /v1/users | Users:Create User
 [**v1_get_me**](UsersApi.md#v1_get_me) | **GET** /v1/users/me | Users:Get Me
 [**v1_get_role_by_user_id**](UsersApi.md#v1_get_role_by_user_id) | **GET** /v1/users/{user_id}/role | Users:Get Role By User Id
@@ -820,6 +821,89 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**204** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_check_register**
+> ResultRequest v1_check_register(user_id)
+
+Users:Check Register
+
+### Example
+
+* Bearer Authentication (HTTPBearer):
+
+```python
+import users_client
+from users_client.models.result_request import ResultRequest
+from users_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /user_service/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = users_client.Configuration(
+    host = "/user_service/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: HTTPBearer
+configuration = users_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with users_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_client.UsersApi(api_client)
+    user_id = 'user_id_example' # str | 
+
+    try:
+        # Users:Check Register
+        api_response = api_instance.v1_check_register(user_id)
+        print("The response of UsersApi->v1_check_register:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UsersApi->v1_check_register: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**|  | 
+
+### Return type
+
+[**ResultRequest**](ResultRequest.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

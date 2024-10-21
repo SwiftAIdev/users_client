@@ -3315,6 +3315,99 @@
         }
       }
     },
+    "/v1/users/{user_id}/check_register": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Users:Check Register",
+        "operationId": "v1_check_register",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "User Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorPydantic"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/users/{user_id}/role": {
       "get": {
         "tags": [
@@ -5821,14 +5914,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322540"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322581"
           },
           "is_delete": {
             "type": "boolean",
@@ -5886,14 +5979,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322540"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322581"
           },
           "is_delete": {
             "type": "boolean",
@@ -6033,14 +6126,14 @@
             "type": "string",
             "format": "date-time",
             "title": "Дата создания",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322540"
           },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "title": "Дата обновления",
             "description": "Дата последнего обновления",
-            "default": "2024-10-18T18:40:03.374594"
+            "default": "2024-10-21T10:14:52.322581"
           },
           "is_delete": {
             "type": "boolean",
